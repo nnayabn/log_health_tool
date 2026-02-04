@@ -10,9 +10,12 @@ def load_logs():
             reader = csv.DictReader(csvfile)
             for row in reader:
                 logs.append(row)
+        if not logs:
+            print("Warning: CSV is empty!")
     except FileNotFoundError:
         print(f"File {DATA_FILE} not found!")
     return logs
+
 
 if __name__ == "__main__":
     logs = load_logs()
